@@ -8,6 +8,7 @@ using MeowDSIO;
 using MeowDSIO.DataFiles;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
@@ -50,6 +51,24 @@ namespace Paramdomizer
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 txtGamePath.Text = dialog.FileName;
+                gameDirectory = dialog.FileName;
+
+                lblMessage.Text = "";
+                lblMessage.Visible = true;
+
+                if (!File.Exists(gameDirectory + "\\DARKSOULS.exe"))
+                {
+                    lblMessage.Text = "Not a valid Data directory!";
+                    lblMessage.ForeColor = Color.Red;
+                    return;
+                }
+                else if (!File.Exists(gameDirectory + "\\param\\GameParam\\GameParam.parambnd"))
+                {
+                    //user hasn't unpacked their game
+                    lblMessage.Text = "You don't seem to have an unpacked Dark Souls installation. Please run UDSFM and come back :)";
+                    lblMessage.ForeColor = Color.Red;
+                    return;
+                }
             }
         }
 
@@ -60,6 +79,7 @@ namespace Paramdomizer
 
             //reset message label
             lblMessage.Text = "";
+            lblMessage.ForeColor = new Color();
             lblMessage.Visible = true;
 
             if (!File.Exists(gameDirectory + "\\DARKSOULS.exe"))
@@ -94,10 +114,10 @@ namespace Paramdomizer
             string seed = txtSeed.Text;
 
             //create backup of gameparam
-            if (!File.Exists(gameDirectory + "\\param\\GameParam\\GameParam.parambndbak"))
+            if (!File.Exists(gameDirectory + "\\param\\GameParam\\GameParam.parambnd.bak"))
             {
-                File.Copy(gameDirectory + "\\param\\GameParam\\GameParam.parambnd", gameDirectory + "\\param\\GameParam\\GameParam.parambndbak");
-                lblMessage.Text = "Backed up GameParam.parambnd at /DATA/param/GameParam/GameParam.parambndbak\n\n";
+                File.Copy(gameDirectory + "\\param\\GameParam\\GameParam.parambnd", gameDirectory + "\\param\\GameParam\\GameParam.parambnd.bak");
+                lblMessage.Text = "Backed up GameParam.parambnd \n\n";
                 lblMessage.ForeColor = Color.Black;
                 lblMessage.Visible = true;
             }
@@ -2841,9 +2861,9 @@ namespace Paramdomizer
             {
                 //why is this necessary
                 //without the loop it doesnt run async
-                for (var i = 0; i < 1; i++)
+                for (var i = 0; i < 5; i++)
                 {
-                    Task.Delay(1).Wait();
+                    Task.Delay(10).Wait();
                     progress.Report("Randomizing...\n\n");
                 }
             }
