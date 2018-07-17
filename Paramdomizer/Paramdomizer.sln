@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paramdomizer", "Paramdomizer\Paramdomizer.csproj", "{30DA8574-1092-4BF3-BE7A-99B003494994}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30DA8574-1092-4BF3-BE7A-99B003494994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30DA8574-1092-4BF3-BE7A-99B003494994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30DA8574-1092-4BF3-BE7A-99B003494994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30DA8574-1092-4BF3-BE7A-99B003494994}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D1BA804-1C95-4F76-A33A-3F3D4C9D44C3}
+	EndGlobalSection
+EndGlobal
