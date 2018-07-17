@@ -8,8 +8,8 @@ using MeowDSIO;
 using MeowDSIO.DataFiles;
 using System.IO;
 using System.Reflection;
-using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace Paramdomizer
 {
@@ -40,6 +40,16 @@ namespace Paramdomizer
                     lblMessage.Visible = true;
                     lblMessage.ForeColor = Color.Red;
                 }
+            }
+        }
+
+        private void btnOpenFolderDialog_Click(object sender, EventArgs e)
+        {
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                txtGamePath.Text = dialog.FileName;
             }
         }
 
