@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtSeed = new System.Windows.Forms.TextBox();
             this.lblSeed = new System.Windows.Forms.Label();
             this.lblGamePath = new System.Windows.Forms.Label();
@@ -360,6 +361,7 @@
             this.Controls.Add(this.lblGamePath);
             this.Controls.Add(this.lblSeed);
             this.Controls.Add(this.txtSeed);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Paramdomizer";
