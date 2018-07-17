@@ -25,7 +25,7 @@ namespace Paramdomizer
         private void Form1_Load(object sender, EventArgs e)
         {
             //check if running exe from data directory
-            gameDirectory = Assembly.GetEntryAssembly().Location;
+            gameDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
             if (File.Exists(gameDirectory + "\\DARKSOULS.exe"))
             {
