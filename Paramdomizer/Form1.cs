@@ -865,7 +865,12 @@ namespace Paramdomizer
                             if (cell.Def.Name == "goodsUseAnim")
                             {
                                 PropertyInfo prop = cell.GetType().GetProperty("Value");
-                                allUseAnimations.Add(Convert.ToInt32(prop.GetValue(cell, null)));
+                                int animid = Convert.ToInt32(prop.GetValue(cell, null));
+                                //the empty estus animation - prevents using item
+                                if (animid != 254)
+                                {
+                                    allUseAnimations.Add(Convert.ToInt32(prop.GetValue(cell, null)));
+                                }
                             }
                         }
                     }
@@ -880,13 +885,17 @@ namespace Paramdomizer
                                 int randomIndex = r.Next(allUseAnimations.Count);
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
+                                int animid = Convert.ToInt32(prop.GetValue(cell, null));
 
-                                if (chkItemAnimations.Checked)
+                                if (animid != 254)
                                 {
-                                    prop.SetValue(cell, allUseAnimations[randomIndex], null);
-                                }
+                                    if (chkItemAnimations.Checked)
+                                    {
+                                        prop.SetValue(cell, allUseAnimations[randomIndex], null);
+                                    }
 
-                                allUseAnimations.RemoveAt(randomIndex);
+                                    allUseAnimations.RemoveAt(randomIndex);
+                                }
                             }
                         }
                     }
