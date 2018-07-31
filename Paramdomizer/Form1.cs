@@ -365,7 +365,7 @@ namespace Paramdomizer
                                 PropertyInfo prop = cell.GetType().GetProperty("Value");
                                 allTurnVelocities.Add((float)(prop.GetValue(cell, null)));
                             }
-                            else if (cell.Def.Name == "stamina")
+                            /*else if (cell.Def.Name == "stamina")
                             {
                                 PropertyInfo prop = cell.GetType().GetProperty("Value");
                                 allStaminas.Add(Convert.ToInt32(prop.GetValue(cell, null)));
@@ -374,7 +374,7 @@ namespace Paramdomizer
                             {
                                 PropertyInfo prop = cell.GetType().GetProperty("Value");
                                 allStaminaRegens.Add(Convert.ToInt32(prop.GetValue(cell, null)));
-                            }
+                            }*/
                         }
                     }
 
@@ -412,33 +412,33 @@ namespace Paramdomizer
                                 }
 
                                 allTurnVelocities.RemoveAt(randomIndex);
-                            }
-                            else if (cell.Def.Name == "stamina")
-                            {
-                                int randomIndex = r.Next(allStaminas.Count);
-                                Type type = cell.GetType();
-                                PropertyInfo prop = type.GetProperty("Value");
+                            }                             
+                            //else if (cell.Def.Name == "stamina")
+                            //{
+                            //    int randomIndex = r.Next(allStaminas.Count);
+                            //    Type type = cell.GetType();
+                            //    PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkStaminaRegen.Checked)
-                                {
-                                    prop.SetValue(cell, allStaminas[randomIndex], null);
-                                }
+                            //    if (chkStaminaRegen.Checked)
+                            //    {
+                            //        prop.SetValue(cell, allStaminas[randomIndex], null);
+                            //    }
 
-                                allStaminas.RemoveAt(randomIndex);
-                            }
-                            else if (cell.Def.Name == "staminaRecoverBaseVal")
-                            {
-                                int randomIndex = r.Next(allStaminaRegens.Count);
-                                Type type = cell.GetType();
-                                PropertyInfo prop = type.GetProperty("Value");
+                            //    allStaminas.RemoveAt(randomIndex);
+                            //}
+                            //else if (cell.Def.Name == "staminaRecoverBaseVal")
+                            //{
+                            //    int randomIndex = r.Next(allStaminaRegens.Count);
+                            //    Type type = cell.GetType();
+                            //    PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkStaminaRegen.Checked)
-                                {
-                                    prop.SetValue(cell, allStaminaRegens[randomIndex], null);
-                                }
+                            //    if (chkStaminaRegen.Checked)
+                            //    {
+                            //        prop.SetValue(cell, allStaminaRegens[randomIndex], null);
+                            //    }
 
-                                allStaminaRegens.RemoveAt(randomIndex);
-                            }
+                            //    allStaminaRegens.RemoveAt(randomIndex);
+                            //}
                         }
                     }
                 }
@@ -862,7 +862,7 @@ namespace Paramdomizer
                     {
                         foreach (MeowDSIO.DataTypes.PARAM.ParamCellValueRef cell in paramRow.Cells)
                         {
-                            if (cell.Def.Name == "UseAnimation")
+                            if (cell.Def.Name == "goodsUseAnim")
                             {
                                 PropertyInfo prop = cell.GetType().GetProperty("Value");
                                 allUseAnimations.Add(Convert.ToInt32(prop.GetValue(cell, null)));
@@ -875,7 +875,7 @@ namespace Paramdomizer
                     {
                         foreach (MeowDSIO.DataTypes.PARAM.ParamCellValueRef cell in paramRow.Cells)
                         {
-                            if (cell.Def.Name == "UseAnimation")
+                            if (cell.Def.Name == "goodsUseAnim")
                             {
                                 int randomIndex = r.Next(allUseAnimations.Count);
                                 Type type = cell.GetType();
@@ -1103,7 +1103,7 @@ namespace Paramdomizer
                     {
                         foreach (MeowDSIO.DataTypes.PARAM.ParamCellValueRef cell in paramRow.Cells)
                         {
-                            if (cell.Def.Name == "SfxVariationId")
+                            if (cell.Def.Name == "refType")
                             {
                                 PropertyInfo prop = cell.GetType().GetProperty("Value");
                                 allSfxVariationIds.Add(Convert.ToInt32(prop.GetValue(cell, null)));
@@ -1116,7 +1116,7 @@ namespace Paramdomizer
                     {
                         foreach (MeowDSIO.DataTypes.PARAM.ParamCellValueRef cell in paramRow.Cells)
                         {
-                            if (cell.Def.Name == "SfxVariationId")
+                            if (cell.Def.Name == "refType")
                             {
                                 int randomIndex = r.Next(allSfxVariationIds.Count);
                                 Type type = cell.GetType();
@@ -1393,7 +1393,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if(true)
                                 {
                                     prop.SetValue(cell, allneckTurnGains[randomIndex], null);
                                 }
@@ -1407,7 +1408,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, alloriginalGroundHeightMSs[randomIndex], null);
                                 }
@@ -1421,7 +1423,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allminAnkleHeightMSs[randomIndex], null);
                                 }
@@ -1435,7 +1438,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allmaxAnkleHeightMSs[randomIndex], null);
                                 }
@@ -1449,7 +1453,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allcosineMaxKneeAngles[randomIndex], null);
                                 }
@@ -1463,7 +1468,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allcosineMinKneeAngles[randomIndex], null);
                                 }
@@ -1477,7 +1483,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allfootPlantedAnkleHeightMSs[randomIndex], null);
                                 }
@@ -1491,7 +1498,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allfootRaisedAnkleHeightMSs[randomIndex], null);
                                 }
@@ -1505,7 +1513,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allrayCastDistanceUps[randomIndex], null);
                                 }
@@ -1519,7 +1528,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allraycastDistanceDowns[randomIndex], null);
                                 }
@@ -1533,7 +1543,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allfootEndLS_Xs[randomIndex], null);
                                 }
@@ -1547,7 +1558,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allfootEndLS_Ys[randomIndex], null);
                                 }
@@ -1561,7 +1573,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allfootEndLS_Zs[randomIndex], null);
                                 }
@@ -1575,7 +1588,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allonOffGains[randomIndex], null);
                                 }
@@ -1589,7 +1603,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allgroundAscendingGains[randomIndex], null);
                                 }
@@ -1603,7 +1618,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allgroundDescendingGains[randomIndex], null);
                                 }
@@ -1617,7 +1633,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allfootRaisedGains[randomIndex], null);
                                 }
@@ -1631,7 +1648,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allfootDescendingGains[randomIndex], null);
                                 }
@@ -1645,7 +1663,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allfootUnlockGains[randomIndex], null);
                                 }
@@ -1659,7 +1678,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allkneeAxisTypes[randomIndex], null);
                                 }
@@ -1673,7 +1693,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, alluseFootLockings[randomIndex], null);
                                 }
@@ -1687,7 +1708,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allfootPlacementOns[randomIndex], null);
                                 }
@@ -1701,7 +1723,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, alltwistKneeAxisTypes[randomIndex], null);
                                 }
@@ -1715,7 +1738,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allneckTurnPrioritys[randomIndex], null);
                                 }
@@ -1729,7 +1753,8 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkSkeletons.Checked)
+                                //if (chkSkeletons.Checked)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allneckTurnMaxAngles[randomIndex], null);
                                 }
