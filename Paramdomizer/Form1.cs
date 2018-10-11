@@ -576,7 +576,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allNearDists[randomIndex], null);
                                 }
@@ -589,7 +589,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allMidDists[randomIndex], null);
                                 }
@@ -602,7 +602,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allFarDists[randomIndex], null);
                                 }
@@ -615,7 +615,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allOutDists[randomIndex], null);
                                 }
@@ -628,7 +628,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allEye_dists[randomIndex], null);
                                 }
@@ -641,7 +641,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allEar_dists[randomIndex], null);
                                 }
@@ -654,7 +654,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allNose_dists[randomIndex], null);
                                 }
@@ -667,7 +667,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allMaxBackhomeDists[randomIndex], null);
                                 }
@@ -680,7 +680,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allBackhomeDists[randomIndex], null);
                                 }
@@ -693,7 +693,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allBackhomeBattleDists[randomIndex], null);
                                 }
@@ -706,7 +706,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allBackHome_LookTargetTimes[randomIndex], null);
                                 }
@@ -719,7 +719,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allBackHome_LookTargetDists[randomIndex], null);
                                 }
@@ -732,7 +732,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allBattleStartDists[randomIndex], null);
                                 }
@@ -745,7 +745,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allEye_angXs[randomIndex], null);
                                 }
@@ -758,7 +758,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allEye_angYs[randomIndex], null);
                                 }
@@ -771,7 +771,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allEar_angXs[randomIndex], null);
                                 }
@@ -784,7 +784,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allEar_angYs[randomIndex], null);
                                 }
@@ -797,7 +797,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allSightTargetForgetTimes[randomIndex], null);
                                 }
@@ -810,7 +810,7 @@ namespace Paramdomizer
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
 
-                                if (chkAggroRadius.Checked && !hydraIds.Contains(cell.Def.ID))
+                                if (chkAggroRadius.Checked && !hydraIds.Contains(paramRow.ID))
                                 {
                                     prop.SetValue(cell, allSoundTargetForgetTimes[randomIndex], null);
                                 }
