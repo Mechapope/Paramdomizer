@@ -412,7 +412,7 @@ namespace Paramdomizer
                                 }
 
                                 allTurnVelocities.RemoveAt(randomIndex);
-                            }                             
+                            }
                             //else if (cell.Def.Name == "stamina")
                             //{
                             //    int randomIndex = r.Next(allStaminas.Count);
@@ -571,7 +571,7 @@ namespace Paramdomizer
                         {
                             int[] hydraIds = { 353000, 353001, 353100, 353200 };
                             if (cell.Def.Name == "nearDist")
-                            {                                
+                            {
                                 int randomIndex = r.Next(allNearDists.Count);
                                 Type type = cell.GetType();
                                 PropertyInfo prop = type.GetProperty("Value");
@@ -1149,22 +1149,28 @@ namespace Paramdomizer
                     List<int> allMsgs = new List<int>();
                     foreach (MeowDSIO.DataTypes.PARAM.ParamRow paramRow in paramFile.Entries)
                     {
-                        foreach (MeowDSIO.DataTypes.PARAM.ParamCellValueRef cell in paramRow.Cells)
+                        MeowDSIO.DataTypes.PARAM.ParamCellValueRef validVoiceCheck = paramRow.Cells.First(c => c.Def.Name == "voiceId");
+                        PropertyInfo voiceCheckProp = validVoiceCheck.GetType().GetProperty("Value");
+
+                        if (!InvalidVoiceIds.Contains(voiceCheckProp.GetValue(validVoiceCheck, null)))
                         {
-                            if (cell.Def.Name == "voiceId")
+                            foreach (MeowDSIO.DataTypes.PARAM.ParamCellValueRef cell in paramRow.Cells)
                             {
-                                PropertyInfo prop = cell.GetType().GetProperty("Value");
-                                if (!InvalidVoiceIds.Contains(prop.GetValue(cell, null)))
+                                if (cell.Def.Name == "voiceId")
                                 {
-                                    allSounds.Add(Convert.ToInt32(prop.GetValue(cell, null)));
+                                    PropertyInfo prop = cell.GetType().GetProperty("Value");
+                                    if (!InvalidVoiceIds.Contains(prop.GetValue(cell, null)))
+                                    {
+                                        allSounds.Add(Convert.ToInt32(prop.GetValue(cell, null)));
+                                    }
                                 }
-                            }
-                            else if (cell.Def.Name == "msgId")
-                            {
-                                PropertyInfo prop = cell.GetType().GetProperty("Value");
-                                if (!InvalidVoiceIds.Contains(prop.GetValue(cell, null)))
+                                else if (cell.Def.Name == "msgId")
                                 {
-                                    allMsgs.Add(Convert.ToInt32(prop.GetValue(cell, null)));
+                                    PropertyInfo prop = cell.GetType().GetProperty("Value");
+                                    if (!InvalidVoiceIds.Contains(prop.GetValue(cell, null)))
+                                    {
+                                        allMsgs.Add(Convert.ToInt32(prop.GetValue(cell, null)));
+                                    }
                                 }
                             }
                         }
@@ -1173,34 +1179,40 @@ namespace Paramdomizer
                     //loop again to set a random value per entry
                     foreach (MeowDSIO.DataTypes.PARAM.ParamRow paramRow in paramFile.Entries)
                     {
-                        foreach (MeowDSIO.DataTypes.PARAM.ParamCellValueRef cell in paramRow.Cells)
+                        MeowDSIO.DataTypes.PARAM.ParamCellValueRef validVoiceCheck = paramRow.Cells.First(c => c.Def.Name == "voiceId");
+                        PropertyInfo voiceCheckProp = validVoiceCheck.GetType().GetProperty("Value");
+
+                        if (!InvalidVoiceIds.Contains(voiceCheckProp.GetValue(validVoiceCheck, null)))
                         {
-                            if (cell.Def.Name == "voiceId")
+                            foreach (MeowDSIO.DataTypes.PARAM.ParamCellValueRef cell in paramRow.Cells)
                             {
-                                int randomIndex = r.Next(allSounds.Count);
-                                Type type = cell.GetType();
-                                PropertyInfo prop = type.GetProperty("Value");
-
-                                if (chkVoices.Checked && !InvalidVoiceIds.Contains(prop.GetValue(cell, null)))
+                                if (cell.Def.Name == "voiceId")
                                 {
-                                    prop.SetValue(cell, allSounds[randomIndex], null);
-                                }
+                                    int randomIndex = r.Next(allSounds.Count);
+                                    Type type = cell.GetType();
+                                    PropertyInfo prop = type.GetProperty("Value");
 
-                                allSounds.RemoveAt(randomIndex);
-                            }
-                            else if (cell.Def.Name == "msgId")
-                            {
-                                int randomIndex = r.Next(allMsgs.Count);
-                                Type type = cell.GetType();
-                                PropertyInfo prop = type.GetProperty("Value");
-                                if (chkVoices.Checked && !InvalidVoiceIds.Contains(prop.GetValue(cell, null)))
+                                    if (chkVoices.Checked && !InvalidVoiceIds.Contains(prop.GetValue(cell, null)))
+                                    {
+                                        prop.SetValue(cell, allSounds[randomIndex], null);
+                                    }
+
+                                    allSounds.RemoveAt(randomIndex);
+                                }
+                                else if (cell.Def.Name == "msgId")
                                 {
-                                    prop.SetValue(cell, allMsgs[randomIndex], null);
-                                }
+                                    int randomIndex = r.Next(allMsgs.Count);
+                                    Type type = cell.GetType();
+                                    PropertyInfo prop = type.GetProperty("Value");
+                                    if (chkVoices.Checked && !InvalidVoiceIds.Contains(prop.GetValue(cell, null)))
+                                    {
+                                        prop.SetValue(cell, allMsgs[randomIndex], null);
+                                    }
 
-                                allMsgs.RemoveAt(randomIndex);
+                                    allMsgs.RemoveAt(randomIndex);
+                                }
                             }
-                        }
+                        }                        
                     }
                 }
                 else if (paramFile.ID == "RAGDOLL_PARAM_ST")
@@ -1410,7 +1422,7 @@ namespace Paramdomizer
                                 PropertyInfo prop = type.GetProperty("Value");
 
                                 //if (chkSkeletons.Checked)
-                                if(true)
+                                if (true)
                                 {
                                     prop.SetValue(cell, allneckTurnGains[randomIndex], null);
                                 }
@@ -2864,6 +2876,50 @@ namespace Paramdomizer
                                 }
 
                                 isHitDarkForceMagicVals.RemoveAt(randomIndex);
+                            }
+                        }
+                    }
+                }
+                else if (paramFile.ID == "CHARACTER_INIT_PARAM")
+                {
+                    foreach (MeowDSIO.DataTypes.PARAM.ParamRow paramRow in paramFile.Entries)
+                    {
+                        MeowDSIO.DataTypes.PARAM.ParamCellValueRef bowCheckCell = paramRow.Cells.First(c => c.Def.Name == "npcPlayerFaceGenId");
+                        Type bowchecktype = bowCheckCell.GetType();
+                        PropertyInfo bowcheckprop = bowchecktype.GetProperty("Value");
+
+                        if (Convert.ToInt32(bowcheckprop.GetValue(bowCheckCell, null)) > -1)
+                        {
+                            foreach (MeowDSIO.DataTypes.PARAM.ParamCellValueRef cell in paramRow.Cells)
+                            {
+                                if(cell.Def.Name.StartsWith("bodyScale"))
+                                {
+                                    Type type = cell.GetType();
+                                    PropertyInfo prop = type.GetProperty("Value");
+
+                                    if (chkRandomFaceData.Checked)
+                                    {
+                                        //existing values are all multiples of 10 - not sure if necessary but round to nearest 10 for now
+                                        int newValue = ((int)Math.Round(r.Next((int)cell.Def.Min, (int)cell.Def.Max) / 10.0)) * 10;
+                                        prop.SetValue(cell, newValue, null);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (paramFile.ID == "FACE_PARAM_ST")
+                {
+                    foreach (MeowDSIO.DataTypes.PARAM.ParamRow paramRow in paramFile.Entries)
+                    {
+                        foreach (MeowDSIO.DataTypes.PARAM.ParamCellValueRef cell in paramRow.Cells)
+                        {
+                            Type type = cell.GetType();
+                            PropertyInfo prop = type.GetProperty("Value");
+
+                            if (chkRandomFaceData.Checked)
+                            {
+                                prop.SetValue(cell, r.Next((int)cell.Def.Min, (int)cell.Def.Max), null);
                             }
                         }
                     }

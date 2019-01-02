@@ -53,6 +53,7 @@
             this.chkItemAnimations = new System.Windows.Forms.CheckBox();
             this.chkMagicAnimations = new System.Windows.Forms.CheckBox();
             this.btnOpenFolderDialog = new System.Windows.Forms.Button();
+            this.chkRandomFaceData = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtSeed
@@ -305,11 +306,24 @@
             this.btnOpenFolderDialog.UseVisualStyleBackColor = true;
             this.btnOpenFolderDialog.Click += new System.EventHandler(this.btnOpenFolderDialog_Click);
             // 
+            // chkRandomFaceData
+            // 
+            this.chkRandomFaceData.AutoSize = true;
+            this.chkRandomFaceData.Checked = true;
+            this.chkRandomFaceData.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkRandomFaceData.Location = new System.Drawing.Point(265, 222);
+            this.chkRandomFaceData.Name = "chkRandomFaceData";
+            this.chkRandomFaceData.Size = new System.Drawing.Size(144, 17);
+            this.chkRandomFaceData.TabIndex = 22;
+            this.chkRandomFaceData.Text = "Random NPC Face Data";
+            this.chkRandomFaceData.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(452, 329);
+            this.Controls.Add(this.chkRandomFaceData);
             this.Controls.Add(this.btnOpenFolderDialog);
             this.Controls.Add(this.chkMagicAnimations);
             this.Controls.Add(this.chkItemAnimations);
@@ -367,6 +381,7 @@
         private System.Windows.Forms.CheckBox chkItemAnimations;
         private System.Windows.Forms.CheckBox chkMagicAnimations;
         private System.Windows.Forms.Button btnOpenFolderDialog;
+        private System.Windows.Forms.CheckBox chkRandomFaceData;
     }
 }
 
